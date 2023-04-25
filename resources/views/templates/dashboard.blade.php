@@ -21,7 +21,7 @@
             <div class="w-full flex justify-between items-center px-3">
                 <span class="text-2xl text-danger top-5 cursor-pointer flex items-center">
                     <i class="bx bx-menu mr-3" onclick="openSidebar()"></i>
-                    <img src="{{ asset('img/logo.png') }}" alt="Warta!">
+                    <img src="{{ asset('img/logo.png') }}" width="150" alt="Warta!">
                 </span>
                 <span class="text-dark top-5 items-center">
                     <span class="mr-2 font-medium lg:text-base text-sm capitalize">

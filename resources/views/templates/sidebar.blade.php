@@ -2,7 +2,7 @@
     <div class="flex flex-col w-72 bg-dark overflow-hidden shadow-md h-full">
         <div class="flex items-center py-3 px-5 shadow-sm shadow-secondary">
             <span class="text-2xl text-gray top-5 left-4 cursor-pointer flex items-center" onclick="openSidebar()">
-                <i class="bx bx-x mr-3"></i> <img src="{{ asset('img/logo-merah.png') }}" alt="Warta!">
+                <i class="bx bx-x mr-3"></i> <img src="{{ asset('img/logo-merah.png') }}" width="150" alt="Warta!">
             </span>
         </div>
         <ul
