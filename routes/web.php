@@ -10,13 +10,17 @@ use App\Http\Controllers\TanggapanController;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 
+
+
 Route::get('/masuk', [AuthController::class, 'masuk'])->name('login')->middleware('guest');
 Route::post('/masuk', [AuthController::class, 'login'])->middleware('guest');
 Route::get('/daftar', [AuthController::class, 'daftar'])->middleware('guest');
 Route::post('/daftar', [AuthController::class, 'register'])->middleware('guest');
 Route::post('/keluar', [AuthController::class, 'keluar']);
 
-Route::get('/', function () {
+require __DIR__ . '/landing_page/landing_page.php';
+
+Route::get('/dashboard', function () {
     return view('index', [
         'title'           => 'Dasbor',
         'total_laporan'   => Pengaduan::all()->count(),
@@ -44,4 +48,6 @@ Route::group(['middleware' => ['auth', 'hanyaAdmin']], function () {
     Route::get('/pengguna/petugas', [UserController::class, 'petugas']);
     Route::resource('/pengguna', UserController::class);
 });
+
+
 
