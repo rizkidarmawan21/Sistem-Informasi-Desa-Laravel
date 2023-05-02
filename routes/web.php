@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\TanggapanController;
@@ -16,9 +15,10 @@ Route::get('/masuk', [AuthController::class, 'masuk'])->name('login')->middlewar
 Route::post('/masuk', [AuthController::class, 'login'])->middleware('guest');
 Route::get('/daftar', [AuthController::class, 'daftar'])->middleware('guest');
 Route::post('/daftar', [AuthController::class, 'register'])->middleware('guest');
-Route::post('/keluar', [AuthController::class, 'keluar']);
+Route::post('/keluar', [AuthController::class, 'keluar'])->name('logout');
 
 require __DIR__ . '/landing_page/landing_page.php';
+
 
 Route::get('/dashboard', function () {
     return view('index', [
@@ -49,5 +49,8 @@ Route::group(['middleware' => ['auth', 'hanyaAdmin']], function () {
     Route::resource('/pengguna', UserController::class);
 });
 
+
+//  Control Management System Landing Page
+require __DIR__ . '/landing_page/cms.php';
 
 

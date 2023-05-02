@@ -44,8 +44,8 @@
                             Layanan
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Pengaduan Masyarakat</a></li>
-                            <li><a class="dropdown-item" href="#">Pengajuan Surat Online</a></li>
+                            <li><a href="{{ route('pengaduan.create') }}" class="dropdown-item" href="#">Pengaduan Masyarakat</a></li>
+                            <li><a href="{{ route('pengajuan-surat.create') }}" class="dropdown-item" href="#">Pengajuan Surat Online</a></li>
 
                         </ul>
                     </li>
@@ -69,8 +69,18 @@
                     <li class="nav-item">
                         <a class="nav-link">Produk Hukum</a>
                     </li>
-                </ul>
+                    <li class="nav-item">
+
+                        @auth
+                            <a href="{{ url('/dashboard') }}"
+                                class="nav-link text-white rounded-5 bg-primary-2 px-4">Dashboard</a>
+                        @else
+                            <a href="{{ route('login') }}" class="nav-link text-white rounded-5 bg-primary-2 px-4">Login</a>
+                            @endif
+
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-</div>
+        </nav>
+    </div>
