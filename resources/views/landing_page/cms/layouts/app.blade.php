@@ -76,6 +76,7 @@
         </div>
     </div>
 
+
     @stack('prepend-script')
     @include('landing_page.cms.layouts.components.script')
     @stack('addon-script')

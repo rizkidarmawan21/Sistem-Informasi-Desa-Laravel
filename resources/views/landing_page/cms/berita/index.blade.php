@@ -55,8 +55,9 @@
                                     </td>
                                     <td> {{ $berita->author->nama }} </td>
                                     <td>
-                                        <a href="" class="btn btn-info btn-sm">Lihat</a>
-                                        <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                        <a target="blank" href="{{ route('informasi.berita.detail', $berita->slug) }}"
+                                            class="btn btn-info btn-sm">Lihat</a>
+                                        <a href="{{ route('cms.berita.edit',$berita->id) }}" class="btn btn-primary btn-sm">Edit</a>
 
                                         <form action="{{ route('cms.berita.destroy', $berita->id) }}" method="post">
                                             @csrf

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\LandingPage\CMS;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CMS\Berita\Store;
+use App\Http\Requests\CMS\Berita\Update;
 use App\Models\LandingPage\Berita;
 use App\Services\BeritaService;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class BeritaController extends Controller
     public function index()
     {
         $beritas = Berita::with('author')->get();
-        return view('landing_page.cms.berita.index',compact('beritas'));
+        return view('landing_page.cms.berita.index', compact('beritas'));
     }
 
     /**
@@ -44,16 +45,12 @@ class BeritaController extends Controller
      */
     public function store(Store $request)
     {
-       try {
-            $this->beritaService->storeBerita($request);
-            return redirect()->route('cms.berita.index')->with('success', 'Berita berhasil ditambahkan');
-
-       } catch (\Exception $e) {
-            return $this->exceptionError($e->getMessage());
-       }
+        $this->beritaService->storeBerita($request);
+        return redirect()->route('cms.berita.index')->with('success', 'Berita berhasil ditambahkan');
     }
 
-    public function CKEditorUpload(Request $request) {
+    public function CKEditorUpload(Request $request)
+    {
         if ($request->hasFile('upload')) {
             $request->validate([
                 'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -75,7 +72,6 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
-        
     }
 
     /**
@@ -86,7 +82,7 @@ class BeritaController extends Controller
      */
     public function edit(Berita $berita)
     {
-        //
+        return view('landing_page.cms.berita.edit', compact('berita'));
     }
 
     /**
@@ -96,9 +92,10 @@ class BeritaController extends Controller
      * @param  \App\Models\LandingPage\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Berita $berita)
+    public function update(Update $request, Berita $berita)
     {
-        //
+        $this->beritaService->updateBerita($request, $berita);
+        return redirect()->route('cms.berita.index')->with('success', 'Berita berhasil diperbarui');
     }
 
     /**
@@ -110,7 +107,7 @@ class BeritaController extends Controller
     public function destroy(Berita $berita)
     {
         // jika gambarnya ada hapus
-        if($berita->gambar){
+        if ($berita->gambar) {
             Storage::delete($berita->gambar);
         }
 

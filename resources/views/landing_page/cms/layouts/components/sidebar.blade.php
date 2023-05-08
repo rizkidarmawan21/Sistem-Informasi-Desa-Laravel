@@ -18,18 +18,57 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
+
+    <li class="nav-item">
+        <!-- collapsed -->
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pemerintah"
+            aria-expanded="true" aria-controls="pemerintah">
+            <i class="fa-solid fa-building-ngo"></i>
+            <span>Pemerintah</span>
+        </a>
+        <div id="pemerintah" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner roun ded">
+                <h6 class="collapse-header">Pemerintah</h6>
+                <a class="collapse-item {{ set_active(['cms.berita.index', 'cms.berita.create', 'cms.berita.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.berita.index') }}">Struktur Desa</a>
+
+            </div>
+        </div>
+
+    </li>
+
     <li class="nav-item">
         <!-- collapsed -->
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#informasi"
             aria-expanded="true" aria-controls="informasi">
-            <i class="fas fa-fw fa-cog"></i>
+            <i class="fa-solid fa-circle-info"></i>
             <span>Informasi</span>
         </a>
         <div id="informasi" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner roun ded">
                 <h6 class="collapse-header">Informasi</h6>
-                <a class="collapse-item {{ set_active(['cms.berita.index', 'cms.berita.create']) }}" class="collapse-item"
-                    href="{{ route('cms.berita.index') }}">Berita</a>
+                <a class="collapse-item {{ set_active(['cms.berita.index', 'cms.berita.create', 'cms.berita.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.berita.index') }}">Berita</a>
+
+            </div>
+        </div>
+
+    </li>
+
+    <li class="nav-item">
+        <!-- collapsed -->
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#master_data"
+            aria-expanded="true" aria-controls="master_data">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Master Data</span>
+        </a>
+        <div id="master_data" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner roun ded">
+                <h6 class="collapse-header">Master Data</h6>
+                <a class="collapse-item {{ set_active(['cms.pegawai.index', 'cms.pegawai.create', 'cms.pegawai.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.pegawai.index') }}">Pegawai</a>
+                <a class="collapse-item {{ set_active(['cms.jabatan.index', 'cms.jabatan.create', 'cms.jabatan.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.jabatan.index') }}">Jabatan</a>
 
             </div>
         </div>
