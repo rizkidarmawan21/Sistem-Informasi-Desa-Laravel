@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('pengumumen', function (Blueprint $table) {
             $table->id();
+            $table->string('judul');
+            $table->string('judul_singkat');
+            $table->string('slug')->unique();
+            $table->string('gambar')->nullable();
+            $table->text('deskripsi');
+            $table->text('deskripsi_singkat');
+            $table->foreignId('author_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

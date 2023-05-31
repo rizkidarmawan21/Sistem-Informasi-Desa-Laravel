@@ -2,6 +2,18 @@
 @section('content')
     <div class="container-fluid">
 
+        @if (session('success'))
+            <div class="alert alert-success mt-3" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger mt-3" role="alert">
+                {{ session('error') }}
+            </div>
+        @endif
+
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Data Berita</h1>
@@ -45,7 +57,8 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $berita->created_at }}</td>
                                     <td>
-                                        <img src="{{ asset('storage/' . $berita->gambar) }}" width="200" alt="">
+                                        <img src="{{ asset($berita->gambar ? 'storage/' . $berita->gambar : 'img/no-picture.png') }}"
+                                            width="200" alt="">
                                     </td>
                                     <td width="30%">
                                         {{ $berita->judul }}
@@ -57,7 +70,8 @@
                                     <td>
                                         <a target="blank" href="{{ route('informasi.berita.detail', $berita->slug) }}"
                                             class="btn btn-info btn-sm">Lihat</a>
-                                        <a href="{{ route('cms.berita.edit',$berita->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        <a href="{{ route('cms.berita.edit', $berita->id) }}"
+                                            class="btn btn-primary btn-sm">Edit</a>
 
                                         <form action="{{ route('cms.berita.destroy', $berita->id) }}" method="post">
                                             @csrf

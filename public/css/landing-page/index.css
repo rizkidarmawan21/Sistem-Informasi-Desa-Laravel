@@ -12,6 +12,12 @@ a {
 
 /* Custom Class */
 
+.text-primary-2 {
+    color: #0091bc;
+}
+.text-primary-2:hover {
+    color: #047293;
+}
 .bg-primary-2 {
     background-color: #0091bc;
 }
@@ -22,6 +28,16 @@ a {
 
 .object-cover {
     object-fit: cover;
+}
+
+.set-active {
+    background-color: #049dcb;
+    color: white;
+}
+
+.set-active:hover {
+    background-color: #0790ba;
+    color: white;
 }
 
 /* End Custom Class */
@@ -41,7 +57,6 @@ a {
     font-size: 15px;
     font-weight: 500;
 }
-
 
 #carousel .c-img {
     max-height: 84vh;
@@ -141,7 +156,7 @@ a {
 
 /* Berita */
 
-#board-news #title-board {
+#title-board {
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
@@ -284,7 +299,61 @@ a {
     object-fit: cover;
     border-radius: 20px;
 }
+
+#content-desc figure table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #dbdcdd;
+}
+
+#content-desc figure table th,
+#content-desc figure table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #dbdcdd;
+}
+
+#content-desc figure table thead {
+    background-color: #ededed;
+}
+
+#table-ckeditor figure table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    border: 1px solid #dbdcdd;
+}
+
+#table-ckeditor figure table th,
+#table-ckeditor figure table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #dbdcdd;
+}
+
+#table-ckeditor figure table thead {
+    background-color: #ededed;
+}
 /* End Detail Berita */
+
+/* Pegawai */
+#another-pegawai #header {
+    position: relative;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom: 0px;
+    z-index: 9999;
+}
+#another-pegawai #header h6 {
+    color: #0091bc;
+    font-size: 15px;
+    font-weight: 600;
+}
+#another-pegawai #body {
+    margin-top: -1px !important;
+    border-top-left-radius: 0px;
+}
 
 @media (max-width: 576px) {
     #carousel .c-img {

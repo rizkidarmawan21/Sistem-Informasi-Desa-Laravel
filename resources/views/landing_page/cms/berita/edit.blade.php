@@ -23,7 +23,7 @@
                     <h6>Edit Berita</h6>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('cms.berita.update',$berita->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('cms.berita.update', $berita->id) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -32,13 +32,16 @@
                                 class="form-control" id="judul" placeholder="Masukkan Judul Berita">
                         </div>
                         <div class="mb-3">
-                            
+
                             <label for="gambar" class="form-label">Thumbnail</label>
-                            <br>
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" width="500" alt="">
-                            <label for="gambar" class="form-label">Gambar Saat ini</label>
-                            <br>
-                            <br>
+
+                            @if ($berita->gambar)
+                                <div class="my-5">
+                                    <img src="{{ asset('storage/' . $berita->gambar) }}" width="500" alt="">
+                                    <label for="gambar" class="form-label">Thumbnail Saat ini</label>
+                                </div>
+                            @endif
+
                             <input type="file" name="gambar" class="form-control" id="gambar"
                                 placeholder="Masukkan Thumnail Berita">
                         </div>
@@ -53,7 +56,7 @@
                         <div class="mb-3">
                             <label for="editor" class="form-label">Deskripsi Berita</label>
                             <textarea name="deskripsi" id="editor" rows="10">
-                                {{ old('deskripsi',$berita->deskripsi) }}
+                                {{ old('deskripsi', $berita->deskripsi) }}
                             </textarea>
                         </div>
                         <div class="mt-5 mb-3">

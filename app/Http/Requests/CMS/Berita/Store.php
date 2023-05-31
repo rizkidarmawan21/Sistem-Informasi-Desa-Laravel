@@ -26,7 +26,7 @@ class Store extends FormRequest
         return [
             'judul' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
             'tipe' => 'required',
         ];
     }

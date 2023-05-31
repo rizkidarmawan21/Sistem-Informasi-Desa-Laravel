@@ -5,7 +5,7 @@
             <h1 class="text-lg lg:text-2xl text-danger font-semibold mb-2">Selamat datang, 
                 <span class="capitalize">{{ auth()->user()->nama }}!</span>
             </h1>
-            <p class="text-base font-normal text-secondary">Buat proses pengaduan jadi lebih mudah dengan Warta!</p>
+            <p class="text-base font-normal text-secondary">Buat proses pengaduan jadi lebih mudah dengan aplikasi!</p>
         </div>
         @can('masyarakat')
             <a href="/pengaduan/create" class="text-white bg-danger focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center">Buat Pengaduan</a>

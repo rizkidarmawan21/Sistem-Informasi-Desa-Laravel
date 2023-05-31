@@ -33,9 +33,12 @@
                             Pemerintah
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Struktur Desa</a></li>
-                            <li><a class="dropdown-item" href="#">Perangkat Desa</a></li>
-                            <li><a class="dropdown-item" href="#">Lembaga Desa</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pemerintah.organisasi.index') }}">Struktur
+                                    Organisasi</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pemerintah.perangkat.index') }}">Perangkat
+                                    Desa</a></li>
+                            <li><a class="dropdown-item" href="{{ route('pemerintah.lembaga.index') }}">Lembaga Desa</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -44,8 +47,10 @@
                             Layanan
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('pengaduan.create') }}" class="dropdown-item" href="#">Pengaduan Masyarakat</a></li>
-                            <li><a href="{{ route('pengajuan-surat.create') }}" class="dropdown-item" href="#">Pengajuan Surat Online</a></li>
+                            <li><a href="{{ route('pengaduan.create') }}" class="dropdown-item" href="#">Pengaduan
+                                    Masyarakat</a></li>
+                            <li><a href="{{ route('pengajuan-surat.create') }}" class="dropdown-item"
+                                    href="#">Pengajuan Surat Online</a></li>
 
                         </ul>
                     </li>
@@ -56,26 +61,28 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('informasi.berita.index') }}" class="dropdown-item">Berita</a></li>
-                            <li><a class="dropdown-item" href="#">Pengumuman</a></li>
-                            <li><a class="dropdown-item" href="#">Agenda Kegiatan</a></li>
-                            <li><a class="dropdown-item" href="#">Galeri</a></li>
-                            <li><a class="dropdown-item" href="#">APBDesa</a></li>
+                            <li><a class="dropdown-item"
+                                    href="{{ route('informasi.pengumuman.index') }}">Pengumuman</a></li>
+                            {{-- <li><a class="dropdown-item" href="#">Agenda Kegiatan</a></li> --}}
+                            <li><a class="dropdown-item" href="{{ route('informasi.galeri.index') }}">Galeri</a></li>
+                            <li><a class="dropdown-item" href="{{ route('informasi.apb.index') }}">APBDesa</a></li>
 
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link">Potensi Desa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link">Produk Hukum</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
 
                         @auth
                             <a href="{{ url('/dashboard') }}"
                                 class="nav-link text-white rounded-5 bg-primary-2 px-4">Dashboard</a>
                         @else
-                            <a href="{{ route('login') }}" class="nav-link text-white rounded-5 bg-primary-2 px-4">Login</a>
+                            <a href="{{ route('login') }}"
+                                class="nav-link text-white rounded-5 bg-primary-2 px-4">Login</a>
                             @endif
 
                         </li>

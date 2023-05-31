@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Website Resmi Desa Semerak | @yield('title', 'Kabupaten Pati')</title>
+    <title>@yield('title', 'Desa Semerak') | Website Resmi Desa Semerak</title>
 
     @stack('prepend-style')
 
@@ -39,7 +39,8 @@
     @include('landing_page.layouts.navbar')
     <!-- End Navbar -->
 
-    <main style="min-height: 100vh;">
+    
+    <main style="min-height: @yield('min-height','100vh');">
         @yield('content')
     </main>
 

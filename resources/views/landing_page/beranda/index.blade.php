@@ -2,6 +2,52 @@
 
 
 @section('content')
+    <!-- Carousel -->
+    <div id="carousel">
+        <div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('img/landing-page/carousel-1.png') }}" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption carousel-caption-1">
+                        <h1>SISTEM INFORMASI</h5>
+                            <h3>DESA SEMERAK <br> KABUPATEN PATI</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magni voluptatum est.
+                                Reprehenderit, eveniet earum. Voluptatum quo recusandae fugiat accusamus.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/landing-page/carousel-2.png') }}" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption carousel-caption-2">
+                        <h1>PENGAJUAN SURAT ONLINE</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eius in accusamus iure
+                                perferendis ducimus itaque commodi dicta, sit nisi officiis quidem delectus nobis
+                                perspiciatis tempora id at enim necessitatibus non aperiam consequatur atque labore.
+                                Quod ipsam quis veritatis aliquam rem, quasi expedita, velit temporibus cumque deleniti
+                                quaerat architecto sequi?</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('img/landing-page/carousel-3.jpg') }}" class="d-block w-100 c-img" alt="...">
+                    <div class="carousel-caption carousel-caption-2">
+                        <h1>AKSES INFORMASI <br> TERBARU</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam magni voluptatum est.
+                                Reprehenderit, eveniet earum. Voluptatum quo recusandae fugiat accusamus.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <img src="{{ asset('img/landing-page/arrow-left.svg') }}" alt="">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <img src="{{ asset('img/landing-page/arrow-right.svg') }}" alt="">
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- End Carousel -->
     <!-- Section About Us / Tentang Desa -->
     <section id="about-us" class="container">
         <div id="header-section" class="text-center">

@@ -1,6 +1,6 @@
-### **Warta!**
+### **Sidesa!**
 
-Warta! adalah adalah sistem informasi berbasis *web application* untuk menyampaikan sebuah laporan pengaduan atau keluhan.
+Sidesa! adalah adalah sistem informasi berbasis *web application* untuk menyampaikan sebuah laporan pengaduan atau keluhan.
 
 ### **Teknologi yang digunakan**
 

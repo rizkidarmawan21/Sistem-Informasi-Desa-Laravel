@@ -79,6 +79,17 @@
                 ckfinder: {
                     uploadUrl: '{{ route('cms.ckeditor.upload') . '?_token=' . csrf_token() }}'
                 },
+
+                // make add custom css in table
+                table: {
+                    contentToolbar: [
+                        'tableColumn',
+                        'tableRow',
+                        'mergeTableCells',
+                        'tableProperties',
+                        'tableCellProperties'
+                    ]
+                },
             })
             .then((result) => {
                 console.log(result);

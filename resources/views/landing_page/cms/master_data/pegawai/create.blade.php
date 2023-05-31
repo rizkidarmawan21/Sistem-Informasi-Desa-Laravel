@@ -23,7 +23,7 @@
                     <h6>Tambah Data Pegawai</h6>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('cms.pegawai.store') }}" method="post">
+                    <form action="{{ route('cms.pegawai.store') }}" method="post" enctype="multipart/form-data">
                         <div class="modal-body">
                             @csrf
                             <div class="mb-3">
@@ -41,9 +41,13 @@
                                 <input type="text" name="keterangan" value="{{ old('keterangan') }}" class="form-control"
                                     id="keterangan" placeholder="Masukkan keterangan pegawai">
                             </div>
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto</label>
+                                <input type="file" name="foto" value="{{ old('foto') }}" class="form-control"
+                                    id="foto" placeholder="Masukkan foto pegawai">
+                            </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </form>

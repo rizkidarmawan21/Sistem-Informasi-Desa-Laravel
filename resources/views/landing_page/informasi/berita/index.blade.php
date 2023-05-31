@@ -3,6 +3,7 @@
 @section('title')
     Informasi Berita
 @endsection
+@section('min-height', '50vh')
 
 @section('content')
     <!-- Board News -->
@@ -99,11 +100,11 @@
     <div id="list-news" class="mt-5 container ">
         <div class="row">
             <div class="col-md-8">
-                @foreach ($beritas as $berita)
+                @forelse ($beritas as $berita)
                     <div id="card-news" class="row mb-4"
                         onclick="window.location.href='{{ route('informasi.berita.detail', $berita->slug) }}';">
                         <div id="thumbnail" class="col-5">
-                            <img src="{{ asset('storage/' . $berita->gambar) }}" width="100%"
+                            <img src="{{ asset($berita->gambar ? 'storage/' . $berita->gambar :'img/no-picture.png') }}" width="100%"
                                 class="object-cover d-block rounded-20" alt="...">
                         </div>
                         <div id="body" class="col-7">
@@ -124,7 +125,11 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div id="card-news" class="row mb-4">
+                        <h5 class="text-center text-secondary">Berita belum ditemukan</h5>
+                    </div>
+                @endforelse
 
             </div>
             <div class="col-md-4">
@@ -138,7 +143,7 @@
                             <a href="{{ route('informasi.berita.detail', $berita_baru->slug) }}">
                                 <div id="card-new-latest" class="row mb-1">
                                     <div class="col-6">
-                                        <img src="{{ asset('storage/' . $berita_baru->gambar) }}" width="100%"
+                                        <img src="{{ asset($berita_baru->gambar ? 'storage/' . $berita_baru->gambar : 'img/no-picture.png') }}" width="100%"
                                             height="95" class="object-cover d-block">
                                     </div>
                                     <div class="col-6">

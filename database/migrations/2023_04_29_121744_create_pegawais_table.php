@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nip')->default('-');
-            $table->foreignId('jabatan_pegawai_id')->nullable()->cascadeOnUpdate()->cascadeOnDelete();
+            $table->foreignId('jabatan_pegawai_id')->nullable()->constrained('jabatan_pegawais')->cascadeOnUpdate()->nullOnDelete();
             $table->string('is_kepala_jabatan')->default(0);
             $table->text('keterangan')->nullable();
+            $table->string('foto')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

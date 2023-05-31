@@ -29,8 +29,11 @@
         <div id="pemerintah" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner roun ded">
                 <h6 class="collapse-header">Pemerintah</h6>
-                <a class="collapse-item {{ set_active(['cms.berita.index', 'cms.berita.create', 'cms.berita.edit']) }}"
-                    class="collapse-item" href="{{ route('cms.berita.index') }}">Struktur Desa</a>
+                <a class="collapse-item {{ set_active(['cms.struktur-desa.index', 'cms.struktur-desa.create', 'cms.struktur-desa.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.struktur-desa.index') }}">Struktur Organisasi</a>
+                <a class="collapse-item {{ set_active(['cms.lembaga-desa.index', 'cms.lembaga-desa.create', 'cms.lembaga-desa.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.lembaga-desa.index') }}">Lembaga Desa</a>
+
 
             </div>
         </div>
@@ -49,6 +52,12 @@
                 <h6 class="collapse-header">Informasi</h6>
                 <a class="collapse-item {{ set_active(['cms.berita.index', 'cms.berita.create', 'cms.berita.edit']) }}"
                     class="collapse-item" href="{{ route('cms.berita.index') }}">Berita</a>
+                <a class="collapse-item {{ set_active(['cms.pengumuman.index', 'cms.pengumuman.create', 'cms.pengumuman.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.pengumuman.index') }}">Pengumuman</a>
+                <a class="collapse-item {{ set_active(['cms.galeri.index', 'cms.galeri.create', 'cms.galeri.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.galeri.index') }}">Galeri</a>
+                <a class="collapse-item {{ set_active(['cms.apb.index', 'cms.apb.create', 'cms.apb.edit']) }}"
+                    class="collapse-item" href="{{ route('cms.apb.index') }}">APB Desa</a>
 
             </div>
         </div>

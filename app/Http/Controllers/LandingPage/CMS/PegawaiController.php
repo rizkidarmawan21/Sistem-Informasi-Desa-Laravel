@@ -5,6 +5,7 @@ namespace App\Http\Controllers\LandingPage\CMS;
 use App\Http\Controllers\Controller;
 use App\Models\LandingPage\Pegawai;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiController extends Controller
 {
@@ -37,13 +38,20 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        $validation = $request->validate([
-            'nama' => 'required'
+
+        $request->validate([
+            'nama' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg'
         ]);
 
+        $data = $request->all();
 
+        if ($request->hasFile('foto')) {
+            $image_path = $request->file('foto')->store('public/pegawai', 'public');
+            $data['foto'] = $image_path;
+        }
 
-        Pegawai::create($request->all());
+        Pegawai::create($data);
 
         return redirect()->route('cms.pegawai.index')->with('success', 'Pegawai berhasil ditambahkan');
     }
@@ -80,12 +88,21 @@ class PegawaiController extends Controller
     public function update(Request $request, Pegawai $pegawai)
     {
         $data = $request->all();
-        $validation = $request->validate([
-            'nama' => 'required'
+        $request->validate([
+            'nama' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg'
         ]);
 
-        $data['nip'] = $request->nip ?: '-';
 
+        if ($request->hasFile('foto')) {
+            $data['foto'] = $request->file('foto')->store('public/pegawai', 'public');
+
+            if ($pegawai->foto) {
+                Storage::delete($pegawai->foto);
+            }
+        }
+
+        $data['nip'] = $request->nip ?: '-';
 
         $pegawai->update($data);
 
@@ -100,6 +117,7 @@ class PegawaiController extends Controller
      */
     public function destroy(Pegawai $pegawai)
     {
+        Storage::delete($pegawai->foto);
         $pegawai->delete();
         return redirect()->route('cms.pegawai.index')->with('success', 'Pegawai berhasil dihapus');
     }

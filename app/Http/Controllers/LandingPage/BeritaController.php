@@ -11,9 +11,9 @@ class BeritaController extends Controller
     public function index(Request $request)
     {
         if($request->search){
-            $beritas = Berita::with('author')->where('judul','like','%'.$request->search.'%')->orWhere('deskripsi','like','%'.$request->search.'%')->paginate(10);
+            $beritas = Berita::with('author')->where('judul','like','%'.$request->search.'%')->orWhere('deskripsi','like','%'.$request->search.'%')->paginate(6);
         }else{
-            $beritas = Berita::with('author')->paginate(10);
+            $beritas = Berita::with('author')->paginate(6);
         }
 
         $berita_terbaru = Berita::with('author')->orderBy('created_at','desc')->limit(3)->get();

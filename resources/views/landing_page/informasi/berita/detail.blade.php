@@ -24,7 +24,9 @@
             {{ $berita->author->nama }}
         </p>
 
-        <img id="thumbnail" src="{{ asset('storage/' . $berita->gambar) }}">
+        @if ($berita->gambar)
+            <img id="thumbnail" src="{{ asset('storage/' . $berita->gambar) }}">
+        @endif
 
         <div id="content-desc" class="my-5 lh-lg" align="justify">
             {!! $berita->deskripsi !!}
